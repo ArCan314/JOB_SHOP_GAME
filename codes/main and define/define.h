@@ -13,11 +13,9 @@
 
 /*******************常量定义**********************/
 
-#define MAXlen 205	//染色体长度
-//#define MAXnum 1000	//种群容量
+#define MAXlen 505	//染色体长度
 #define MAXnum 400	//种群容量
 #define MOVEage 50	//移民间隔
-//#define MAXage 1000	//最大代数
 #define MAXage 2000	//最大代数
 #define ISLAND 2	//岛屿数量
 #define MUTATION 0.2	//突变概率
@@ -27,8 +25,6 @@
 #define TWIN 1		//竞技场胜者个数
 #define TRANGE 1	//竞技场选择生产时间短的概率
 #define TIMELIMIT 299990//运行时间限制为5min
-
-
 
 /*******************结构定义**********************/
 
@@ -53,7 +49,6 @@ typedef struct//解码出的单个机器上的单个工序
 	int end;//完成时间
 }PROCESS;
 
-
 /*************声明全局变量*******************/
 
 extern DATA **data;//输入数据
@@ -70,21 +65,15 @@ extern int Job;//总操作数
 extern int age;//当前进化代数
 extern int MutantRange;//发生突变的区间
 extern int CrossoverRange;//发生交叉的区间
-extern int TournamentRange;
-//extern int after_select[ISLAND][MAXnum];//选择后的基因映射
+extern int TournamentRange;//发生锦标赛选择的区间
 extern double Sum_fitness[2];//岛屿中所有个体适应度的和
-extern int elite_size;
-extern int nelite_size;
-extern int max_operate_num;
-extern int crossovered[ISLAND][MAXnum];
+extern int elite_size;//精英数量
+extern int nelite_size;//非精英数量
+extern int max_operate_num;//最大锦标赛选择数
+extern int crossovered[ISLAND][MAXnum];//发生过交叉的个体（0代表没有交叉，1代表交叉）
 extern int BestMakeSpan;//最优解的最长完工时间
 
 /************************FOR DEBUG***********************
-
-	extern int mutanted[ISLAND][MAXnum];//表示经过突变的个体mutanted[island][index of the mutanted]
-
-
-*/
 
 /*******************声明全局函数**************************/
 
@@ -99,6 +88,5 @@ extern double fitnesscalc(int);
 extern void select(GENE ***, GENE ***);
 extern int terminate(void);
 extern void output(void);
-
 
 #endif
