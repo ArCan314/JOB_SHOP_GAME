@@ -18,8 +18,10 @@
 #define MOVEage 50	//移民间隔
 #define MAXage 2000	//最大代数
 #define ISLAND 2	//岛屿数量
-#define MUTATION 0.2	//突变概率
-#define CROSS 0.7	//交叉概率
+#define MUTATION_1 0.1	//突变概率
+#define MUTATION_2 0.2  
+#define CROSS_1 0.8	//交叉概率
+#define CROSS_2 0.5	//交叉概率
 #define ELITE 0.005	//精英比率
 #define TSIZE 2		//竞技场大小
 #define TWIN 1		//竞技场胜者个数
@@ -63,8 +65,8 @@ extern int Element;//需加工的工件总数
 extern int Machine;//机器总数
 extern int Job;//总操作数
 extern int age;//当前进化代数
-extern int MutantRange;//发生突变的区间
-extern int CrossoverRange;//发生交叉的区间
+extern int MutantRange[ISLAND];//发生突变的区间
+extern int CrossoverRange[ISLAND];//发生交叉的区间
 extern int TournamentRange;//发生锦标赛选择的区间
 extern double Sum_fitness[2];//岛屿中所有个体适应度的和
 extern int elite_size;//精英数量

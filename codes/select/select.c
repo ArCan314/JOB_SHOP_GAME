@@ -33,6 +33,14 @@ void init_random_pair(GENE *initgen)	//随机染色体对的初始化 initgen.ge
 			(*initgen).gene[k++] = i;
 }
 
+static void swap(int *a, int *b)	//交换两个元素（int []）
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void tournament_generate(int **tournament)//生成竞技场，内容为对下标的映射
 {
 	int i, j, k;

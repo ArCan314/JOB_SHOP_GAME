@@ -11,8 +11,8 @@ int Element;//需加工的工件总数
 int Machine;//机器总数
 int Job;//总操作数，也就是基因的实际长度
 int age;//当前进化代数
-int MutantRange = (int)(((double)RAND_MAX)*MUTATION);//当rand()的值在[0,MutantRange]时发生突变
-int CrossoverRange = (int)(((double)RAND_MAX)*CROSS);//当rand()的值在[0,CrossoverRange]时发生交叉
+int MutantRange[ISLAND] = { (int)(((double)RAND_MAX)*MUTATION_1),(int)(((double)RAND_MAX)*MUTATION_2) };//当rand()的值在[0,MutantRange]时发生突变
+int CrossoverRange[ISLAND] = { (int)(((double)RAND_MAX)*CROSS_1), (int)(((double)RAND_MAX)*CROSS_2) };//当rand()的值在[0,CrossoverRange]时发生交叉
 int TournamentRange = (int)(((double)RAND_MAX)*TRANGE);//发生锦标赛选择的区间
 int elite_size = (int)(ELITE*(double)MAXnum) >= 1 ? (int)(ELITE*(double)MAXnum) : 1;//精英数量
 int nelite_size = MAXnum - (int)(ELITE*(double)MAXnum);//非精英数量
@@ -91,8 +91,8 @@ int main(void)
 
 		/**********************debug*******************/
 
-		//printf("age:%d\tisland1.makespan:%d\tisland2.makespan:%d\tBestMakeSpan:%d", age, island[0][0].makespan, island[1][0].makespan, BestMakeSpan);
-		//printf("Time %.3f\n", (double)clock() / 1000);
+		printf("age:%d\tisland1.makespan:%d\tisland2.makespan:%d\tBestMakeSpan:%d", age, island[0][0].makespan, island[1][0].makespan, BestMakeSpan);
+		printf("Time %.3f\n", (double)clock() / 1000);
 
 		/**********************************************/
 
